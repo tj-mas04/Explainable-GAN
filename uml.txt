@@ -1,0 +1,33 @@
+@startuml
+title Explainable GAN Flow Diagram
+
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam ArrowThickness 1.2
+
+start
+
+:Brain MRI Dataset;
+:Preprocessing;
+:CNN Tumor Classifier\n(Training Phase);
+:Freeze Classifier Weights;
+
+:Latent Vector z\n[z_structure | z_pathology];
+:Generator;
+:Synthetic MRI;
+
+fork
+  :Discriminator;
+  :Adversarial Loss;
+fork again
+  :Frozen Classifier;
+  :Classification Loss;
+end fork
+
+:Generator Update;
+:Counterfactual Generation;
+:Difference Map + Grad-CAM;
+
+stop
+
+@enduml
