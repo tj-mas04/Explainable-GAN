@@ -6,6 +6,20 @@ goal is to generate realistic MRI images with controllable tumor presence, and
 to analyze GAN behavior using counterfactuals and explainability methods such as
 Grad-CAM.
 
+The core focus of this project is **explainable generative adversarial networks**. 
+By splitting the latent vector into separate "structure" and "pathology"
+dimensions, and integrating a frozen tumor classifier into the generator loss,
+we force the GAN to encode tumor-specific features in a controllable way. This
+allows us to generate counterfactual image pairs (same anatomy with/without
+tumor) and to inspect which pixels the generator alters when toggling the
+pathology component. Additionally, Grad-CAM is applied to both the classifier
+and discriminator to visualize where each model attends when making decisions.
+
+The novelty lies in combining a disentangled latent space with classifier-
+guided training to produce interpretable tumor manipulations, offering a more
+transparent understanding of what the GAN has learned compared to a standard
+black-box model.
+
 ## Structure
 
 - `xgan.ipynb` – Main Jupyter notebook with all data loading, preprocessing,
