@@ -1,4 +1,4 @@
-# GAN-based Brain MRI Tumor Project
+# Explainable GAN-based Brain MRI Tumor Project
 
 This repository contains code for training a CNN classifier and a customized GAN
 on a dataset of brain MRI scans, some containing tumors and some without. The
